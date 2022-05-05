@@ -7,10 +7,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-// app.use('/api/notes', api);
-//Get route for notes
-
-
 app.use(require('./routes/apiRoutes'))
 app.use(require('./routes/htmlRoutes'))
 
