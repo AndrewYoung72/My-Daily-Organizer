@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
-
+// const fs = require('fs');
+const textData = require('./db/db.json')
 const PORT = 3001;
 const app = express();
 
@@ -11,10 +11,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-// app.use('/api', api);
+app.use('/api', api);
 
 //Get route for notes
-app.get('/', (req, res) =>
+app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, 'notes.html'))
 );
 
@@ -22,6 +22,29 @@ app.get('/', (req, res) =>
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, 'index.html'))
 );
+
+app.get('/api/notes', (req, res) => {
+  // Let the client know that their request was received
+  res.json(`${req.method} request received`);
+
+  // Show the user agent information in the terminal
+  console.info(req.rawHeaders);
+
+  // Log our request to the terminal
+  console.info(`${req.method} request received`);
+});
+
+// POST request
+app.post('/api/notes', (req, res) => {
+  // Let the client know that their POST request was received
+  res.json(`${req.method} request received`);
+
+  // Show the user agent information in the terminal
+  console.info(req.rawHeaders);
+
+  // Log our request to the terminal
+  console.info(`${req.method} request received`);
+});
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
