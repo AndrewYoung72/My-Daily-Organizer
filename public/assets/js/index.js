@@ -1,3 +1,4 @@
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -66,10 +67,17 @@ const renderActiveNote = () => {
   }
 };
 
+const uuid = () => {
+  return Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
+};
+
 const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
+    id: uuid(),
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
@@ -161,7 +169,7 @@ const renderNoteList = async (notes) => {
   jsonNotes.forEach((note) => {
     const li = createLi(note.title);
     li.dataset.note = JSON.stringify(note);
-
+    li.addEventListener('click', handleNoteView);
     noteListItems.push(li);
   });
 
