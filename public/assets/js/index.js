@@ -142,7 +142,6 @@ const renderNoteList = async (notes) => {
     spanEl.classList.add('list-item-title');
     spanEl.innerText = text;
     spanEl.addEventListener('click', handleNoteView);
-
     liEl.append(spanEl);
 
     if (delBtn) {
@@ -155,7 +154,6 @@ const renderNoteList = async (notes) => {
         'delete-note'
       );
       delBtnEl.addEventListener('click', handleNoteDelete);
-
       liEl.append(delBtnEl);
     }
 
