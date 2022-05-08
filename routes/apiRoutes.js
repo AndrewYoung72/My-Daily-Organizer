@@ -28,7 +28,6 @@ router.delete(`/api/notes/:id`, (req, res) => {
   fs.readFileSync("./db/db.json", textData, (err) => 
   err ? console.log(err) : console.log(textData))
   res.json(req.body);
-  // fs.readFile("./db/db.json", );
   
 });
 
