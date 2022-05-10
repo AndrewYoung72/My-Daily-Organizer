@@ -1,4 +1,7 @@
 # My-Daily-Organizer
+Link to Heroku deployed page: https://my-daily-organizer-awy.herokuapp.com/
+
+Screen Recording: 
 
 ## Purpose
 We were provided with starter code for this project and our task was to create four routes that would complete the project. Using Express.js, the application should save notes with unique identifiers, from the html page to the db.json file when the save button is clicked. When saved the notes should then display in a list to the left of the webpage. And when completed the application is to be deployed to Heroku. 
